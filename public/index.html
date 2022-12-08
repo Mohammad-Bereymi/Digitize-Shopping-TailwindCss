@@ -10,6 +10,7 @@
 </head>
 
 <body class="bg-gray-100">
+
     <!--app bar-->
 
     <div class="md:hidden flex justify-between items-center mt-10 px-4 mb-6">
@@ -67,6 +68,81 @@
             <span class="text-sm font-medium text-slate-800 mr-3">فیلتر : اپل</span>
         </div>
     </div>
+
+    <div x-data="{
+        products:[
+        {id:'1', title:'ساعت هوشمند اپل سری 6', price:'۱۲,۳۵۴,۸۹۰تومان' },
+        {id:'2', title:'ساعت هوشمند اپل سری 12', price:'۱۲,۳۵۴,۸۹۰تومان' },
+        {id:'3', title:'ساعت هوشمند اپل سری 8', price:'۱۲,۳۵۴,۸۹۰تومان' },
+        {id:'4', title:'ساعت هوشمند اپل سری 5', price:'۱۲,۳۵۴,۸۹۰تومان' }, 
+        {id:'5', title:'ساعت هوشمند اپل سری 3', price:'۱۲,۳۵۴,۸۹۰تومان' },
+        {id:'6', title:'ساعت هوشمند اپل سری 14', price:'۱۲,۳۵۴,۸۹۰تومان' },
+
+        ]
+    }" class="grid gap-x-3 gap-y-8  grid-cols-2  lg:grid-cols-4 px-2 md:p-0  sm:gap-x-4 md:gap-x-6 md:gap-y-10">
+
+
+        <!--single product-->
+
+        <template x-for="product in products" :key="product.id">
+
+            <div class="bg-white p-2 rounded-xl shadow-md">
+                <div class="mb-3 bg-gray-100 rounded-xl p-2">
+                    <img src="../assets/images/apple-watch-7.png" alt="">
+                </div>
+                <!--product desc-->
+                <div class="flex items-center justify-between w-full mb-3">
+                    <span class="text-slate-400 text-sm  md:text-base">اپل</span>
+                    <div x-data="{ color: 'red' }" class="flex items-center">
+                        <div @click="color='red'"
+                            class="w-6 h-6 sm:w-8 sm:h-8 flex justify-center items-center rounded-full cursor-pointer bg-red-400 border-2 border-white">
+                            <svg x-show="color=='red'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                class="w-4 h-4 sm:w-6 sm:h-6 stroke-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg>
+
+                        </div>
+                        <div @click="color='blue'"
+                            class="w-6 h-6 sm:w-8 sm:h-8 flex justify-center items-center rounded-full cursor-pointer bg-blue-400 border-2 border-white -mr-2">
+                            <svg x-show="color=='blue'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                class="w-4 h-4 sm:w-6 sm:h-6 stroke-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg></div>
+                        <div @click="color='green'"
+                            class="w-6 h-6 sm:w-8 sm:h-8 flex justify-center items-center rounded-full cursor-pointer bg-green-400 border-2 border-white -mr-2">
+                            <svg x-show="color=='green'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                class="w-4 h-4 sm:w-6 sm:h-6 stroke-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg></div>
+                    </div>
+                </div>
+
+                <!--product title-->
+
+                <div x-text="product.title" class="text-slate-800 text-xs font-bold mb-2 sm:text-base">
+
+                </div>
+
+                <!--product price-->
+
+                <div x-text="product.price" class="text-orange-600 font-medium text-center text-sm mb-2  sm:text-lg">
+                </div>
+
+                <hr />
+
+                <button class="w-full text-sm font-bold text-orange-600 py-1 md:text-base">مشاهده و
+                    سفارش</button>
+            </div>
+
+        </template>
+
+    </div>
+
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </body>
 
